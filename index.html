@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>خلّيها على الـAI — قوالب وشروحات ذكاء اصطناعي بالعربي</title>
+<meta name="description" content="شروحات عملية بالعربي لأدوات الذكاء الاصطناعي والأتمتة: قوالب n8n مجانية، فيديوهات خطوة بخطوة، ونبنيها لك على بياناتك أنت.">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#090E18">
+<link rel="canonical" href="https://khallihaai.github.io/">
+
+<!-- icons (relative paths; served next to this page on GitHub Pages) -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- Open Graph / Twitter: absolute image URL so WhatsApp / TikTok / X render the preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="خلّيها على الـAI">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://khallihaai.github.io/">
+<meta property="og:title" content="خلّيها على الـAI — قوالب وشروحات ذكاء اصطناعي بالعربي">
+<meta property="og:description" content="قوالب n8n مجانية، فيديوهات شرح خطوة بخطوة، ونبنيها لك على بياناتك أنت.">
+<meta property="og:image" content="https://khallihaai.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="خلّيها على الـAI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="خلّيها على الـAI — قوالب وشروحات ذكاء اصطناعي بالعربي">
+<meta name="twitter:description" content="قوالب n8n مجانية، فيديوهات شرح خطوة بخطوة، ونبنيها لك على بياناتك أنت.">
+<meta name="twitter:image" content="https://khallihaai.github.io/assets/og.png">
+
+<style>
+/* ---- self-hosted Arabic font (Noto Kufi Arabic, OFL-1.1; see fonts/OFL.txt).
+       unicode-range limits it to Arabic codepoints, so Latin tokens (AI, n8n, Excel,
+       GitHub, Claude Code) fall through to the system UI font. ---- */
+@font-face{
+  font-family:"Kufi"; font-style:normal; font-weight:400; font-display:swap;
+  src:url("fonts/kufi-regular.woff2") format("woff2");
+  unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF,U+200C-200F;
+}
+@font-face{
+  font-family:"Kufi"; font-style:normal; font-weight:700; font-display:swap;
+  src:url("fonts/kufi-bold.woff2") format("woff2");
+  unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF,U+200C-200F;
+}
+
+:root{
+  --navy-dark:#090E18; --navy:#0E1626; --card:#16223A; --hi:#1E2E4D;
+  --gold:#FFB800; --gold-deep:#E89600; --white:#F2F4F8; --muted:#9AA6BC; --line:#2A3550;
+  --ui:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0; background:var(--navy-dark);
+  background-image:radial-gradient(1100px 620px at 50% -60px, #1b2a49 0%, #0c1222 58%, #090E18 100%);
+  background-repeat:no-repeat;
+  color:var(--white); line-height:1.65;
+  font-family:"Kufi", var(--ui);
+  font-size:17px; min-height:100vh;
+}
+.lat{font-family:var(--ui);}
+.gold{color:var(--gold);}
+.wrap{max-width:600px; margin-inline:auto; padding-inline:16px; padding-block:28px 8px;}
+a{color:var(--gold);}
+img{max-width:100%;}
+
+/* skip link */
+.skip{position:absolute; inset-inline-start:-999px; top:0; background:var(--gold); color:#090E18;
+  padding:.6rem 1rem; border-radius:0 0 10px 0; font-weight:700; text-decoration:none; z-index:9;}
+.skip:focus{inset-inline-start:0;}
+
+/* hero */
+.hero{text-align:center; padding-block:12px 8px;}
+.logo{width:112px; height:112px; display:inline-block;}
+h1.name{font-size:2.15rem; line-height:1.25; margin:.5rem 0 .25rem; font-weight:700;}
+.promise{margin:.1rem auto .2rem; color:var(--muted); font-size:1.02rem; max-width:34ch;}
+
+/* buttons */
+.cta{display:flex; flex-direction:column; gap:.6rem; margin-block:1.1rem .4rem;}
+.btn{display:flex; align-items:center; justify-content:center; gap:.6rem;
+  padding:.9rem 1.1rem; border-radius:14px; font-weight:700; font-size:1.02rem;
+  text-decoration:none; border:1px solid var(--line); transition:transform .15s ease, border-color .15s ease, background .15s ease;}
+.btn svg{width:22px; height:22px; flex:none;}
+.btn-gold{background:var(--gold); color:#090E18; border-color:var(--gold);}
+.btn-ghost{background:var(--hi); color:var(--white);}
+.btn:hover{transform:translateY(-2px);}
+.btn-ghost:hover{border-color:var(--gold);}
+
+/* section jump chips */
+.nav{display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; margin-block:.9rem 0;}
+.chip{padding:.5rem .95rem; border-radius:999px; background:var(--hi); border:1px solid var(--line);
+  color:var(--white); text-decoration:none; font-size:.92rem; font-weight:700;
+  transition:border-color .15s ease, transform .15s ease;}
+.chip:hover{border-color:var(--gold); transform:translateY(-1px);}
+
+/* sections */
+section{margin-block-start:2.6rem; scroll-margin-block-start:14px;}
+h2{font-size:1.32rem; margin:0 0 .35rem; display:flex; align-items:center; gap:.55rem;}
+h2::before{content:""; inline-size:5px; block-size:1.05em; background:var(--gold); border-radius:3px; flex:none;}
+.lead{color:var(--muted); margin:.1rem 0 1rem; font-size:.98rem;}
+
+/* cards */
+.grid{display:grid; gap:.7rem;}
+.card{display:flex; gap:.85rem; align-items:flex-start; padding:1rem;
+  border-radius:16px; background:var(--card); border:1px solid var(--line);
+  text-decoration:none; color:var(--white);
+  transition:transform .15s ease, border-color .15s ease;}
+a.card:hover{border-color:var(--gold); transform:translateY(-2px);}
+.card .ico{flex:none; inline-size:44px; block-size:44px; border-radius:12px; background:var(--hi);
+  display:grid; place-items:center; color:var(--gold);}
+.card .ico svg{width:24px; height:24px;}
+.card .tx{min-width:0;}
+.card h3{font-size:1.04rem; margin:0 0 .2rem; font-weight:700;}
+.card p{margin:0; color:var(--muted); font-size:.9rem; line-height:1.6;}
+.card .meta{display:block; margin-block-start:.35rem; color:var(--gold); font-size:.82rem; font-weight:700;}
+
+/* featured video */
+.video{display:block; border-radius:16px; overflow:hidden; background:var(--card);
+  border:1px solid var(--line); text-decoration:none; color:var(--white);
+  transition:transform .15s ease, border-color .15s ease;}
+.video:hover{border-color:var(--gold); transform:translateY(-2px);}
+.thumb{position:relative; aspect-ratio:16/9; background:var(--navy);}
+.thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+.play{position:absolute; inset:0; display:grid; place-items:center;}
+.play span{inline-size:66px; block-size:66px; border-radius:50%; background:rgba(255,184,0,.95);
+  display:grid; place-items:center; box-shadow:0 6px 24px rgba(0,0,0,.45);}
+.play svg{width:28px; height:28px; color:#090E18; margin-inline-start:3px;}
+.video .cap{padding:.85rem 1rem;}
+.video .cap h3{margin:0 0 .15rem; font-size:1.04rem;}
+.video .cap p{margin:0; color:var(--muted); font-size:.88rem;}
+
+/* how-to-request + honesty */
+.ask{background:var(--hi); border:1px solid var(--line); border-inline-start:3px solid var(--gold);
+  border-radius:14px; padding:1.05rem 1.1rem; margin-block-start:1rem;}
+.ask h3{margin:0 0 .4rem; font-size:1.05rem;}
+.ask p{margin:.1rem 0 .7rem; color:var(--muted); font-size:.92rem;}
+.ask .row{display:flex; flex-wrap:wrap; gap:.5rem;}
+.ask .row a{display:inline-flex; align-items:center; gap:.4rem; padding:.55rem .9rem; border-radius:12px;
+  background:var(--card); border:1px solid var(--line); color:var(--white); text-decoration:none; font-weight:700; font-size:.9rem;}
+.ask .row a svg{width:18px; height:18px; color:var(--gold);}
+.ask .row a:hover{border-color:var(--gold);}
+.note{color:var(--muted); font-size:.85rem; line-height:1.7; margin-block-start:.9rem;}
+
+/* english block */
+#en{border-block-start:1px solid var(--line); padding-block-start:1.6rem;}
+#en .lead, #en .note{max-width:60ch;}
+
+footer{margin-block-start:3rem; padding-block:1.6rem 2.4rem; border-block-start:1px solid var(--line);
+  color:var(--muted); font-size:.82rem; line-height:1.75;}
+footer p{margin:.3rem 0;}
+footer .en{direction:ltr; text-align:start;}
+footer a{color:var(--gold);}
+
+:focus-visible{outline:3px solid var(--gold); outline-offset:3px;}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;}
+  .btn:hover,.chip:hover,a.card:hover,.video:hover{transform:none;}
+}
+@media (max-width:360px){
+  body{font-size:16px;}
+  h1.name{font-size:1.9rem;}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<div class="wrap">
+
+  <header class="hero">
+    <img class="logo" src="assets/logo.webp" width="112" height="112" alt="شعار قناة خلّيها على الـAI">
+    <h1 class="name">خلّيها على الـ<span class="lat gold">AI</span></h1>
+    <p class="promise">مهمة حقيقية بكل فيديو، خطوة بخطوة وبالعربي.</p>
+
+    <div class="cta">
+      <a class="btn btn-gold" href="https://www.youtube.com/@khallihaai" aria-label="اشترك في قناة يوتيوب خلّيها على الـAI">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 7.3a3 3 0 0 0-2.1-2.1C19.5 4.7 12 4.7 12 4.7s-7.5 0-9.4.5A3 3 0 0 0 .5 7.3 31 31 0 0 0 0 12a31 31 0 0 0 .5 4.7 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-4.7zM9.6 15.6V8.4l6.3 3.6z"/></svg>
+        اشترك على يوتيوب
+      </a>
+      <a class="btn btn-ghost" href="https://www.tiktok.com/@khallihaai" aria-label="تابعنا على تيك توك">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-2.56-3.8h-3.3v13.12a2.6 2.6 0 1 1-1.86-2.5V9.27a5.9 5.9 0 1 0 5.17 5.85V8.86a7.57 7.57 0 0 0 4.42 1.42V6.98a4.3 4.3 0 0 1-1.87-1.18z"/></svg>
+        تابعنا على تيك توك
+      </a>
+    </div>
+
+    <nav class="nav" aria-label="أقسام الصفحة">
+      <a class="chip" href="#watch">شاهد الشرح</a>
+      <a class="chip" href="#templates">قوالب مجانية</a>
+      <a class="chip" href="#build">نبنيها لك</a>
+      <a class="chip" href="#en" lang="en" dir="ltr">English</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== شاهد الشرح ===================== -->
+    <section id="watch" aria-labelledby="watch-h">
+      <h2 id="watch-h">شاهد الشرح</h2>
+      <p class="lead">كل فيديو مهمة حقيقية، نخلّصها بالذكاء الاصطناعي على الشاشة من البداية للنهاية.</p>
+
+      <a class="video" href="https://youtu.be/F191EmU0Mcs" aria-label="شاهد: من فواتير PDF إلى جدول Excel واحد على يوتيوب">
+        <div class="thumb">
+          <img src="assets/invoices-ar.webp" width="720" height="405" alt="شرح: تحويل فواتير PDF إلى جدول Excel واحد">
+          <span class="play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+        </div>
+        <div class="cap">
+          <h3>من فواتير <bdi>PDF</bdi> إلى جدول <bdi>Excel</bdi> واحد</h3>
+          <p>الشرح الكامل على يوتيوب — خطوة بخطوة، بأدوات مجانية.</p>
+        </div>
+      </a>
+
+      <!-- ENABLE WHEN PUBLIC: الفيديو التالي (أوصاف المنتجات) يصير عاماً بعد 2026-10-06 الساعة 18:00. احذف هذا التعليق لإظهار البطاقة.
+      <a class="video" href="https://youtu.be/H2wqZmn4Gdg" aria-label="شاهد: أوصاف منتجات بالذكاء الاصطناعي على يوتيوب">
+        <div class="thumb">
+          <img src="assets/products-ar.webp" width="720" height="405" alt="شرح: كتابة أوصاف منتجات بالذكاء الاصطناعي">
+          <span class="play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+        </div>
+        <div class="cap">
+          <h3>أوصاف منتجات بالذكاء الاصطناعي</h3>
+          <p>الشرح الكامل على يوتيوب — بذكاء اصطناعي يعمل على جهازك.</p>
+        </div>
+      </a>
+      -->
+
+      <div class="grid" style="margin-block-start:.7rem;">
+        <a class="card" href="https://www.youtube.com/@khallihaai">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 7.3a3 3 0 0 0-2.1-2.1C19.5 4.7 12 4.7 12 4.7s-7.5 0-9.4.5A3 3 0 0 0 .5 7.3 31 31 0 0 0 0 12a31 31 0 0 0 .5 4.7 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-4.7zM9.6 15.6V8.4l6.3 3.6z"/></svg></div>
+          <div class="tx"><h3>كل الحلقات على يوتيوب</h3><p>فيديوهات جديدة كل أسبوع.</p><span class="meta">youtube.com/@khallihaai</span></div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@khallihaai">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-2.56-3.8h-3.3v13.12a2.6 2.6 0 1 1-1.86-2.5V9.27a5.9 5.9 0 1 0 5.17 5.85V8.86a7.57 7.57 0 0 0 4.42 1.42V6.98a4.3 4.3 0 0 1-1.87-1.18z"/></svg></div>
+          <div class="tx"><h3>مقاطع قصيرة على تيك توك</h3><p>أهم فكرة من كل حلقة في أقل من دقيقة.</p><span class="meta">tiktok.com/@khallihaai</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== قوالب مجانية ===================== -->
+    <section id="templates" aria-labelledby="tpl-h">
+      <h2 id="tpl-h">قوالب مجانية</h2>
+      <p class="lead">قوالب <bdi>n8n</bdi> جاهزة ومجانية، كل واحد منها مشروح خطوة بخطوة في فيديو على القناة. تعمل محلياً على جهازك، بلا اشتراك.</p>
+
+      <div class="grid">
+        <a class="card" href="https://github.com/khallihaai/templates/tree/main/01-invoices-to-excel">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <div class="tx"><h3>١ — فواتير <bdi>PDF</bdi> إلى جدول <bdi>Excel</bdi></h3><p>يقرأ فواتير <bdi>PDF</bdi> ويستخرج رقم الفاتورة والتاريخ والمبلغ إلى جدول <bdi>Excel</bdi> واحد.</p><span class="meta">افتح على GitHub</span></div>
+        </a>
+        <a class="card" href="https://github.com/khallihaai/templates/tree/main/02-product-descriptions">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h16M4 10h16M4 15h10"/><path d="M15 19l2 2 4-4"/></svg></div>
+          <div class="tx"><h3>٢ — أوصاف منتجات بالذكاء الاصطناعي</h3><p>يكتب وصفاً تسويقياً لكل منتج في جدول <bdi>Excel</bdi>، بذكاء اصطناعي يعمل على جهازك.</p><span class="meta">افتح على GitHub</span></div>
+        </a>
+
+        <!-- ENABLE WHEN PUBLIC: القالب 3 (تصنيف رسائل الزبائن) يُنشر مع فيديو شرحه. احذف هذا التعليق لإظهار البطاقة.
+        <a class="card" href="https://github.com/khallihaai/templates/tree/main/03-customer-messages">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="tx"><h3>٣ — تصنيف رسائل الزبائن</h3><p>يرتّب رسائل الزبائن (طلب / شكوى / سؤال) في جدول Excel مصنّف، بذكاء اصطناعي محلي.</p><span class="meta">افتح على GitHub</span></div>
+        </a>
+        -->
+
+        <!-- ENABLE WHEN PUBLIC: القالب 4 (تلخيص تقارير PDF) يُنشر مع فيديو شرحه. احذف هذا التعليق لإظهار البطاقة.
+        <a class="card" href="https://github.com/khallihaai/templates/tree/main/04-pdf-summaries">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
+          <div class="tx"><h3>٤ — تلخيص تقارير PDF</h3><p>يلخّص تقارير PDF الطويلة في صفحة واحدة لكل تقرير، محلياً.</p><span class="meta">افتح على GitHub</span></div>
+        </a>
+        -->
+
+        <a class="card" href="https://github.com/khallihaai/templates">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.25.8-.56v-2c-3.2.7-3.9-1.37-3.9-1.37-.53-1.35-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.4-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.81.56A11.5 11.5 0 0 0 12 .5z"/></svg></div>
+          <div class="tx"><h3>كل القوالب على GitHub</h3><p>حمّلها مجاناً، واستوردها في <bdi>n8n</bdi> مباشرة.</p><span class="meta">github.com/khallihaai/templates</span></div>
+        </a>
+      </div>
+      <p class="note">كل القوالب تعمل محلياً على جهازك ولا تحتاج أي اشتراك مدفوع. الملفات في الأمثلة بيانات تجريبية فقط. القوالب مجانية برخصة <bdi>MIT</bdi>؛ و <bdi>n8n</bdi> أداة «fair-code» تشغّلها على جهازك مجاناً (ليست «مفتوحة المصدر»).</p>
+    </section>
+
+    <!-- ===================== نبنيها لك ===================== -->
+    <section id="build" aria-labelledby="build-h">
+      <h2 id="build-h">نبنيها لك</h2>
+      <p class="lead">تبي تطبّق الأتمتة اللي شفتها في الفيديو على شغلك؟ نبنيها لك على بياناتك أنت، جاهزة للاستخدام.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2l2.4 5 5.6.5-4.2 3.7 1.3 5.5L12 19l-5.1 2.7 1.3-5.5L4 12.5 9.6 7z"/></svg></div>
+          <div class="tx"><h3>البداية</h3><p>نركّب لك أتمتة واحدة على ملفاتك: فواتير <bdi>PDF</bdi> إلى <bdi>Excel</bdi>، أو أوصاف منتجات بالعربية والإنجليزية، أو فرز رسائل زبائنك.</p></div>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h16M4 10h16M4 15h12M4 20h8"/></svg></div>
+          <div class="tx"><h3>أوصاف منتجات بالجملة</h3><p>أرسل لنا قائمة منتجاتك، وتستلم أوصافاً جاهزة للمتجر بالعربية والإنجليزية كملف <bdi>CSV</bdi> أو <bdi>Excel</bdi>. بلا أي تركيب عندك.</p></div>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div>
+          <div class="tx"><h3>بوت فرز الرسائل</h3><p>بوت يصنّف كل رسالة زبون (طلب / شكوى / سؤال / أخرى)، يعلّم العاجل، يكتب رداً مقترحاً، ويسجّلها في <bdi>Google Sheet</bdi> تتابعه.</p></div>
+        </div>
+      </div>
+
+      <div class="ask">
+        <h3>كيف تطلبها؟</h3>
+        <p>علّق تحت أي فيديو على القناة، أو راسلنا على تيك توك. نسألك بضعة أسئلة قصيرة، ونتفق على العمل والموعد قبل ما نبدأ.</p>
+        <div class="row">
+          <a href="https://www.youtube.com/@khallihaai">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            علّق على يوتيوب
+          </a>
+          <a href="https://www.tiktok.com/@khallihaai">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-2.56-3.8h-3.3v13.12a2.6 2.6 0 1 1-1.86-2.5V9.27a5.9 5.9 0 1 0 5.17 5.85V8.86a7.57 7.57 0 0 0 4.42 1.42V6.98a4.3 4.3 0 0 1-1.87-1.18z"/></svg>
+            راسلنا على تيك توك
+          </a>
+          <!-- ENABLE WHEN FIVERR GIG IS LIVE: ضع رابط خدمة Fiverr مكان العنوان المؤقت ثم احذف هذا التعليق.
+          <a href="https://www.fiverr.com/PASTE-GIG-URL">اطلبها على Fiverr</a>
+          -->
+        </div>
+      </div>
+
+      <p class="note">نشتغل على نسخة من ملفاتك ولا نطلب كلمات المرور أبداً. يمكن تشغيل الذكاء الاصطناعي على نموذج محلي مجاني فلا يخرج شيء من جهازك. الذكاء الاصطناعي يساعد ونحن نراجع قبل التسليم؛ بلا وعود بنتائج مضمونة.</p>
+    </section>
+
+    <!-- ===================== English ===================== -->
+    <section id="en" lang="en" dir="ltr" aria-labelledby="en-h">
+      <h2 id="en-h">English</h2>
+      <p class="lead"><strong>Leave It to AI</strong> — practical tutorials where AI does a real task, step by step, on a real screen.</p>
+
+      <div class="grid">
+        <a class="card" href="https://www.youtube.com/@leaveittoaihq">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 7.3a3 3 0 0 0-2.1-2.1C19.5 4.7 12 4.7 12 4.7s-7.5 0-9.4.5A3 3 0 0 0 .5 7.3 31 31 0 0 0 0 12a31 31 0 0 0 .5 4.7 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-4.7zM9.6 15.6V8.4l6.3 3.6z"/></svg></div>
+          <div class="tx"><h3>Leave It to AI on YouTube</h3><p>Subscribe for new AI-does-the-job tutorials.</p><span class="meta">youtube.com/@leaveittoaihq</span></div>
+        </a>
+        <a class="card" href="https://github.com/khallihaai/templates">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.25.8-.56v-2c-3.2.7-3.9-1.37-3.9-1.37-.53-1.35-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.4-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.81.56A11.5 11.5 0 0 0 12 .5z"/></svg></div>
+          <div class="tx"><h3>Free n8n templates</h3><p>Ready-to-import workflows, each explained on the channel.</p><span class="meta">github.com/khallihaai/templates</span></div>
+        </a>
+      </div>
+
+      <div class="ask">
+        <h3>Claude Code setup for developers &amp; teams</h3>
+        <p>We set up Claude Code for your repo: CLAUDE.md project memory, custom skills, subagents, hooks, safe permissions and one MCP connection — tested and documented. We work on a branch or a copy of your code, and never ask for passwords.</p>
+        <div class="row">
+          <a href="https://www.youtube.com/@leaveittoaihq">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Comment on a video
+          </a>
+          <a href="https://www.tiktok.com/@khallihaai">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-2.56-3.8h-3.3v13.12a2.6 2.6 0 1 1-1.86-2.5V9.27a5.9 5.9 0 1 0 5.17 5.85V8.86a7.57 7.57 0 0 0 4.42 1.42V6.98a4.3 4.3 0 0 1-1.87-1.18z"/></svg>
+            DM us on TikTok
+          </a>
+          <!-- ENABLE WHEN FIVERR GIG IS LIVE: paste the Fiverr gig URL in place of the placeholder, then remove this comment.
+          <a href="https://www.fiverr.com/PASTE-GIG-URL">Order on Fiverr</a>
+          -->
+        </div>
+      </div>
+
+      <p class="note">AI assists and we review before delivery. We agree the scope in writing first. No guaranteed outcomes.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>القوالب مجانية برخصة <bdi>MIT</bdi>. و <bdi>n8n</bdi> أداة «fair-code» (ليست «مفتوحة المصدر»)، تشغّلها على جهازك مجاناً. كل البيانات في الأمثلة تجريبية. الذكاء الاصطناعي يساعد ونراجع بأنفسنا قبل التسليم؛ بلا وعود بنتائج.</p>
+    <p class="en">Templates are free, MIT-licensed. n8n is fair-code software (not open-source), free to self-host. All sample data is synthetic. AI assists; a human reviews before delivery; no guaranteed outcomes.</p>
+    <p class="en">Arabic type: Noto Kufi Arabic, SIL Open Font License 1.1. · <a href="https://github.com/khallihaai/templates">github.com/khallihaai/templates</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
